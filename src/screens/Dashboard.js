@@ -50,7 +50,7 @@ const WINE_ITEM = [
 
 ];
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 
     const insets = useSafeAreaInsets();
 
@@ -86,7 +86,7 @@ const Dashboard = () => {
                 <View style={{flexDirection :'row', marginBottom:20}}>
                     {
                         PRODUCT_ITEM.map((item,index) => (
-                            <Product key={index} item={item} index={index} />
+                            <Product key={index} item={item} index={index} onPress={() => props.navigation.navigate('Detail')} />
                         ))
                     }
                 </View>
@@ -204,6 +204,8 @@ const Product = (props) => (
                 backgroundColor : props.item.color
             }
         ]}
+
+        onPress={props.onPress}
     >
         <View style={{flex : 1}}>
             <Image 
